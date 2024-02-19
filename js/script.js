@@ -5,9 +5,21 @@ for (const seat of seatList) {
   seat.addEventListener("click", function () {
     const seatCounter = document.getElementById("seatCount");
     const seatCounterText = seatCounter.innerText;
-    const currentSeat = parseInt(seatCounterText);
-    const newSeat = currentSeat + 1;
-    seatCounter.innerText = newSeat;
+    if(seatCounterText<4){
+        const currentSeat = parseInt(seatCounterText);
+        const newSeat = currentSeat + 1;
+        seat.disabled = true;
+        seatCounter.innerText = newSeat;
+    }
+    else{
+        alert('Wait..Take a Rest!!');
+        seatList.setAttribute('disabled', true);
+        const btn = document.querySelectorAll('#seats');
+        btn.addEventListener('click', function(){
+            btn.setAttribute('disabled', true);
+        })
+    }
+    
 
     
 
